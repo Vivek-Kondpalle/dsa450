@@ -17,7 +17,7 @@
 // 7
 
 
-// TC = O(n + m - 2min(n,m))
+// TC = O(n + m - min(n,m))
 // SC = O(n + m)
 const doUnion = function(a, n, b, m){
     if(n === 0){
@@ -62,6 +62,23 @@ const doUnion = function(a, n, b, m){
     return unionArray.length;
 }
 
+
+// TC = O(n + m)
+// SC = O(n + m)
+const doUnionMap = function(a, m, b, n){
+    let mp = new Map();
+
+    for(let i = 0; i < m; i++){
+        mp.set(a[i], true);
+    }
+
+    for(let i = 0; i < n; i++){
+        mp.set(b[i], true);
+    }
+
+    return mp.size;
+}
+
 const a = [1, 2, 3, 4, 5];
 const b = [1, 2, 3];
-console.log(doUnion(a, a.length, b, b.length));
+console.log(doUnionMap(a, a.length, b, b.length));
